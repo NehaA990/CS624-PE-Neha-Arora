@@ -1,50 +1,17 @@
-# Welcome to your Expo app 👋
+**Input:** The app begins by letting the user
+type in their favorite course using a simple text box. There's also a small
+image (icon.png) at the top to make the screen look nice. The input is captured
+as soon as the user types something, like “CS624”, and it's stored in the app
+so it can be used later.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Process:** Behind the scenes, the app uses React Native’s core components to
+build the layout. It handles what the user types using a state variable, and
+updates the screen whenever something changes. All the MSCS core courses, two
+depth of study courses, and one capstone course are displayed using scrollable
+text. The app is built with a functional component using an arrow function, and
+it’s styled with an internal StyleSheet to keep things clean.
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Output:** In the end, the app shows a scrollable list of the MSCS courses,
+and it also displays the course the user typed in. The user’s favorite course
+appears clearly at the bottom, so it’s easy to spot. Everything is styled
+nicely so it looks good on a mobile screen.

@@ -1,50 +1,11 @@
-# Welcome to your Expo app 👋
+Input
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+The application begins with a predefined array of user profile data, including names, occupations, descriptions, and a static image (user.png). In the first part, the input is hardcoded and limited to a single profile. In the second part, the array includes multiple user profiles with a showThumbnail property to track user interaction.
 
-## Get started
+Process
 
-1. Install dependencies
+The app uses React Native components to render styled profile cards. The first part statically displays a single profile card with image, name, job title, and description. In the second part, each profile card is rendered dynamically using the map() function. A touch interaction toggles the showThumbnail state of a card, updating its visual scale using the immutability-helper library.
 
-   ```bash
-   npm install
-   ```
+Output
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The output is a visually styled grid of profile cards. On pressing a card, it dynamically shrinks or returns to normal size, providing visual feedback through state-driven renderin

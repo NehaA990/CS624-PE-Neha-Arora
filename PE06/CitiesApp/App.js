@@ -8,13 +8,14 @@ import Cities from './src/Cities/Cities';
 import AddCity from './src/AddCity/AddCity';
 
 import Countries from './src/Countries/Countries';
-import Countries from './src/Countries/Country';
+import Country from './src/Countries/Country'; // ✅ country detail screen
 
 import AddCountry from './src/AddCountry/AddCountry';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+// 🔹 Stack for Cities
 function CitiesStackScreen({ cities }) {
   function CityPlaceholder() {
     return (
@@ -34,6 +35,7 @@ function CitiesStackScreen({ cities }) {
   );
 }
 
+// 🔹 Stack for Countries
 function CountriesStackScreen({ countries }) {
   return (
     <Stack.Navigator>
@@ -45,18 +47,7 @@ function CountriesStackScreen({ countries }) {
   );
 }
 
-
-
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Countries">
-        {(props) => <Countries {...props} countries={countries} />}
-      </Stack.Screen>
-      <Stack.Screen name="Country" component={CountryPlaceholder} />
-    </Stack.Navigator>
-  );
-}
-
+// 🔹 App Root
 export default function App() {
   const [cities, setCities] = useState([]);
   const [countries, setCountries] = useState([]);
@@ -72,16 +63,22 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
+        {/* Cities Tab */}
         <Tab.Screen name="CitiesNav">
           {(props) => <CitiesStackScreen {...props} cities={cities} />}
         </Tab.Screen>
+
+        {/* Add City Tab */}
         <Tab.Screen name="AddCity">
           {(props) => <AddCity {...props} addCity={addCity} />}
         </Tab.Screen>
 
+        {/* Countries Tab */}
         <Tab.Screen name="CountriesNav">
           {(props) => <CountriesStackScreen {...props} countries={countries} />}
         </Tab.Screen>
+
+        {/* Add Country Tab */}
         <Tab.Screen name="AddCountry">
           {(props) => <AddCountry {...props} addCountry={addCountry} />}
         </Tab.Screen>

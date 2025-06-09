@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import uuid from 'react-native-uuid';
 import { colors } from '../theme';
 
-class AddCountry extends React.Component {
+class AddCity extends React.Component {
   state = {
+    city: '',
     country: '',
-    currency: '',
   };
 
   onChangeText = (key, value) => {
@@ -14,42 +14,48 @@ class AddCountry extends React.Component {
   };
 
   submit = () => {
-    const { country, currency } = this.state;
-    if (country === '' || currency === '') {
+    const { city, country } = this.state;
+    if (city === '' || country === '') {
       alert('please complete form');
       return;
     }
-    const newCountry = {
+    const newCity = {
+      city,
       country,
-      currency,
-      used: currency.toLowerCase().includes('not') ? false : true, // simple logic
       id: uuid.v4(),
+      locations: [],
     };
-    this.props.addCountry(newCountry);
-    this.setState({ country: '', currency: '' }, () => {
-      this.props.navigation.navigate('CountriesNav', { screen: 'Countries' });
-    });
-  };  
+    this.props.addCity(newCity);
+    this.setState(
+      {
+        city: '',
+        country: '',
+      },
+      () => {
+        this.props.navigation.navigate('CitiesNav', { screen: 'Cities' });
+      }
+    );
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.heading}>Countries</Text>
+        <Text style={styles.heading}>Cities</Text>
+        <TextInput
+          placeholder="City name"
+          onChangeText={(val) => this.onChangeText('city', val)}
+          style={styles.input}
+          value={this.state.city}
+        />
         <TextInput
           placeholder="Country name"
           onChangeText={(val) => this.onChangeText('country', val)}
           style={styles.input}
           value={this.state.country}
         />
-        <TextInput
-          placeholder="Currency"
-          onChangeText={(val) => this.onChangeText('currency', val)}
-          style={styles.input}
-          value={this.state.currency}
-        />
         <TouchableOpacity onPress={this.submit}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>Add Country</Text>
+            <Text style={styles.buttonText}>Add City</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -88,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddCountry;
+export default AddCity;
